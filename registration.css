@@ -1,24 +1,15 @@
-/* Importing Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 body {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  align-items: flex-start;
+  padding: 20px;
+  background: linear-gradient(135deg, #5e8cab, #9b59b6);
 }
 
 .container {
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   background-color: #fff;
   padding: 25px 30px;
@@ -26,13 +17,50 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.container .title {
+.top-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.top-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+
+.center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
   font-size: 25px;
   font-weight: 500;
   position: relative;
+  margin-bottom: 10px;
 }
 
-.container .title::before {
+.title::before {
   content: "";
   position: absolute;
   left: 0;
@@ -43,25 +71,24 @@ body {
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-.content form .user-details {
+.user-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 12px 0;
 }
 
-form .user-details .input-box {
+.input-box {
   margin-bottom: 15px;
   width: calc(100% / 2 - 20px);
 }
 
-form .input-box span.details {
+.input-box span.details {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.user-details .input-box input {
+.input-box input {
   height: 45px;
   width: 100%;
   outline: none;
@@ -73,30 +100,32 @@ form .input-box span.details {
   transition: all 0.3s ease;
 }
 
-.user-details .input-box input:focus,
-.user-details .input-box input:valid {
-  border-color: #9b59b6;
+.gender-details {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-form .gender-details .gender-title {
+.gender-title {
   font-size: 20px;
   font-weight: 500;
+  margin-top: 5px;
 }
 
-form .category {
+.category {
   display: flex;
-  width: 80%;
-  margin: 14px 0;
-  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
 }
 
-form .category label {
+.category label {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-form .category label .dot {
+.dot {
   height: 18px;
   width: 18px;
   border-radius: 50%;
@@ -106,6 +135,10 @@ form .category label .dot {
   transition: all 0.3s ease;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
 #dot-1:checked ~ .category label .one,
 #dot-2:checked ~ .category label .two,
 #dot-3:checked ~ .category label .three {
@@ -113,17 +146,13 @@ form .category label .dot {
   border-color: #d9d9d9;
 }
 
-form input[type="radio"] {
-  display: none;
+.button {
+  width: 100%;
+  margin-top: 20px;
 }
 
-form .button {
+.button input {
   height: 45px;
-  margin: 35px 0;
-}
-
-form .button input {
-  height: 100%;
   width: 100%;
   border-radius: 5px;
   border: none;
@@ -136,38 +165,37 @@ form .button input {
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-form .button input:hover {
+.button input:hover {
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 
-/* Responsive media query code for mobile devices */
-@media (max-width: 584px) {
-  .container {
-    max-width: 100%;
-  }
-
-  form .user-details .input-box {
-    margin-bottom: 15px;
+@media (max-width: 768px) {
+  .input-box {
     width: 100%;
-  }
-
-  form .category {
-    width: 100%;
-  }
-
-  .content form .user-details {
-    max-height: 300px;
-    overflow-y: scroll;
-  }
-
-  .user-details::-webkit-scrollbar {
-    width: 5px;
   }
 }
 
-/* Responsive media query code for mobile devices */
-@media (max-width: 459px) {
-  .container .content .category {
-    flex-direction: column;
-  }
+.login-redirect {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #444;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-redirect h3 {
+  font-weight: 500;
+}
+
+.login-redirect a {
+  color: #9b59b6;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+.login-redirect a:hover {
+  color: #7137a9;
+  text-decoration: underline;
 }
