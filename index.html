@@ -69,14 +69,21 @@
                     </div>
                 </div>
 
-                <div class="nav-item dropdown ">
+                <!-- Login Link -->
+                <a href="login.html" class="nav-item nav-link" id="loginLink">Login</a>
+
+                <!-- Profile Dropdown (only visible after login) -->
+                <div class="nav-item dropdown" id="profileDropdown" style="display: none;">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="#Beginner" class="dropdown-item">My Account</a>
-                        <a href="#Intermediate" class="dropdown-item">Settings</a>
-                        <a href="registration.html" class="dropdown-item active">Logout</a>
+                        <a href="account.html" class="dropdown-item">My Account</a>
+                        <a href="settings.html" class="dropdown-item">Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     </nav>
@@ -145,6 +152,32 @@
                 dots: true
             });
         });
+
+
+        function updateNavbar() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+            document.getElementById("profileDropdown").style.display = isLoggedIn ? "block" : "none";
+            document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateNavbar();
+
+            const logoutBtn = document.getElementById("logoutBtn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.setItem("isLoggedIn", "false");
+                    updateNavbar();
+                    alert("Logged out successfully!");
+                    window.location.reload();
+                });
+            }
+        });
+
+
+
     </script>
 </body>
 

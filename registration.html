@@ -43,6 +43,14 @@
                     <input type="tel" placeholder="Enter your number" required>
                 </div>
                 <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Conform Password</span>
+                    <input type="password" placeholder="Enter your conform password" required>
+                </div>
+                <div class="input-box">
                     <span class="details">Date of Birth</span>
                     <input type="date" required>
                 </div>
@@ -139,6 +147,16 @@
         </div>
 
     </div>
+
+    <!-- Add inside <script> after form -->
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Registration Successful! Please login.");
+            window.location.href = "login.html";
+        });
+
+    </script>
 </body>
 
 </html>
