@@ -431,3 +431,69 @@
   padding-right: 0;
   border-right: none;
 }
+
+/* Footer Section */
+
+.footer-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  background-color: yellow;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.address-wrapper,
+.footermenuwrapper,
+.newslettersignupwrapper {
+  flex: 1 1 250px; /* allows responsive wrapping */
+  min-width: 250px;
+}
+
+.footer-address-text,
+.footermenunavlink,
+.heading-6,
+.text-field,
+.submit-button {
+  font-family: "Arial", sans-serif;
+}
+
+.newslettersignupwrapper .form {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+}
+
+.text-field {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.submit-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
