@@ -168,6 +168,7 @@ body {
   width: 100%;
   max-width: 320px;
   margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .meal-card img {
   width: 100%;
@@ -189,4 +190,44 @@ body {
 
 .meal-card li {
   margin-bottom: 8px;
+}
+.meal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar .navlinks {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .filterlayout {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .diet-sidebar {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .meal-card {
+    max-width: 100%;
+  }
 }
