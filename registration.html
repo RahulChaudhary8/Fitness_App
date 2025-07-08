@@ -4,18 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" type="image/x-icon" href="favicon1.ico"> -->
+    <link rel="icon" href="favicon1.ico">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+    <link rel="stylesheet" href="style.css">
     <title>Join Now - Register for FitLife Membership</title>
     <link rel="stylesheet" href="registration.css">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-1 ">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 ">
+            <h2 class="m-0 text-primary"><i class="fa"></i>🏋️ FitTrack</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse mx-5" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="#progress" class="nav-item nav-link">Progress</a>
+                <a href="DietPlan.html" class="nav-item nav-link">Diet Plan</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Workouts</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="#Beginner" class="dropdown-item">Beginner</a>
+                        <a href="#Intermediate" class="dropdown-item">Intermediate</a>
+                        <a href="#Advanced" class="dropdown-item active">Advanced</a>
+                    </div>
+                </div>
+
+                <!-- Login Link -->
+                <a href="login.html" class="nav-item nav-link" id="loginLink">Login</a>
+
+                <!-- Profile Dropdown (only visible after login) -->
+                <div class="nav-item dropdown" id="profileDropdown" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="account.html" class="dropdown-item">My Account</a>
+                        <a href="settings.html" class="dropdown-item">Settings</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- Banner with Text Overlay -->
         <div class="top-banner">
-            <img src="img/img.jpg" alt="Start Training Today">
+            <img src="img.jpg" alt="Start Training Today">
             <div class="banner-text">START <br> TRAINING <br> TODAY</div>
         </div>
-
 
         <div class="center-box">
             <h1>Gym Registration Form</h1>
@@ -147,7 +216,75 @@
         </div>
 
     </div>
+    <div class="footer_section">
+        <div class="widecontain">
+            <div class="footer-wrapper">
+                <div class="address-wrapper"><a data-w-id="0d910dd4-4fa2-50b1-c3f3-10174db928de" href="#"
+                        class="footer-address-text">rahulchaudhary775285@gmail.com</a><a
+                        data-w-id="b918d47a-564f-30e6-76ca-21003b1197a8" href="#" class="footer-address-text"></a>
+                    <div class="footer-address-text">Greater Noida Uttar Pradesh<br>India, 8318576674</div>
+                </div>
+                <div class="footermenuwrapper"><a href="index.html" class="footermenunavlinkwrapper w-inline-block">
+                        <div data-w-id="34be8abc-6128-c7f2-ccbb-182438fe23b9" class="footermenunavlink">Home</div>
+                    </a><a href="DietPlan.html" class="footermenunavlinkwrapper w-inline-block">
+                        <div data-w-id="5c439746-f4e2-f9c0-2520-a9bd1372f3d9" class="footermenunavlink">Diet Plan</div>
+                    </a><a href="#" class="footermenunavlinkwrapper w-inline-block">
+                        <div data-w-id="1c368bba-86dd-6c63-b014-2a2723ab1a54" class="footermenunavlink">Contact Us
+                        </div>
+                    </a><a href="#" class="footermenunavlinkwrapper w-inline-block">
+                        <div data-w-id="3874dec4-36d9-2cbe-e6ee-e98322ec5914" class="footermenunavlink">Terms &amp;
+                            Conditions</div>
+                    </a></div>
+                <div class="newslettersignupwrapper">
+                    <h3 class="heading-6">SUBSCRIBE TO OUR NEWSLETTER</h3>
+                    <div class="newsletter-form-block w-form">
+                        <form id="email-form" name="email-form" class="form">
+                            <label for="email">Email address</label>
+                            <input type="email" class="text-field w-input" name="email" id="email" required
+                                placeholder="Enter your email">
 
+                            <input type="submit" value="SUBMIT" class="submit-button w-button">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+
+        function updateNavbar() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+            document.getElementById("profileDropdown").style.display = isLoggedIn ? "block" : "none";
+            document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateNavbar();
+
+            const logoutBtn = document.getElementById("logoutBtn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.setItem("isLoggedIn", "false");
+                    updateNavbar();
+                    alert("Logged out successfully!");
+                    window.location.reload();
+                });
+            }
+        });
+
+    </script>
     <!-- Add inside <script> after form -->
     <script>
         document.querySelector("form").addEventListener("submit", function (e) {
