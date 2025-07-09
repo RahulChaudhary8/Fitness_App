@@ -195,6 +195,71 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
+
+
+/* Floating Button */
+#open-plan-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.modal-content .meal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -231,3 +296,51 @@ body {
     max-width: 100%;
   }
 }
+@media screen and (max-width: 600px) {
+  #open-plan-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 30px;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-height: 85vh;
+    padding: 15px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .close {
+    font-size: 20px;
+    top: 8px;
+    right: 12px;
+  }
+
+  .meal-card {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .meal-card img {
+    height: 150px;
+  }
+
+  .meal-content {
+    gap: 16px;
+  }
+
+  .filter-button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .diet-sidebar h3 {
+    font-size: 16px;
+  }
+}
+
