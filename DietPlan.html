@@ -269,17 +269,52 @@
 
     </script>
     <script>
-        function togglePlan() {
-            document.getElementById("plan-modal").classList.toggle("show");
-        }
+        let mealToAdd = null;
+
         function addToPlan(button) {
-            const mealCard = button.parentElement;
-            const clonedCard = mealCard.cloneNode(true);
-            const btn = clonedCard.querySelector('button');
-            if (btn) btn.remove();
-            document.getElementById("selected-meals").appendChild(clonedCard);
+            mealToAdd = button.parentElement.cloneNode(true);
+            const btn = mealToAdd.querySelector('button');
+            if (btn) btn.remove(); // remove Add button from cloned card
+            const container = document.getElementById('confirm-meal-details');
+            container.innerHTML = ''; // clear old content
+            container.appendChild(mealToAdd);
+            document.getElementById('confirm-modal').classList.add('show');
         }
+
+        function confirmAdd() {
+            if (mealToAdd) {
+                const card = mealToAdd;
+
+                // Create ❌ Remove icon button
+                const removeBtn = document.createElement('span');
+                removeBtn.innerHTML = '&times;'; // HTML entity for × (close icon)
+                removeBtn.className = 'remove-icon';
+                removeBtn.onclick = function () {
+                card.remove();
+            };
+
+            // Insert remove icon at the top/front of the card
+            card.insertBefore(removeBtn, card.firstChild);
+
+            // Append to My Plan
+            document.getElementById("selected-meals").appendChild(card);
+
+            // Reset and close
+            mealToAdd = null;
+            closeConfirmModal();
+        
+        }
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirm-modal').classList.remove('show');
+        mealToAdd = null;
+    }
+
+
     </script>
+    
+
     <!-- Floating Button -->
     <!-- Plan Modal -->
     <div id="plan-modal" class="modal">
@@ -289,6 +324,25 @@
             <div id="selected-meals" class="meal-content"></div>
         </div>
     </div>
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmModal()">&times;</span>
+            <h3>Confirm Add to Plan</h3>
+            <div id="confirm-meal-details"></div>
+            <div style="margin-top: 15px;">
+            <button class="btn btn-primary" onclick="confirmAdd()">Add to Plan</button>
+            <button class="btn btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <button id="open-plan-btn" onclick="togglePlan()"> My Plan</button>
+    <script>
+        function togglePlan() {
+            const modal = document.getElementById("plan-modal");
+            modal.classList.toggle("show");
+        }
+    </script>
 
 
 </body>
