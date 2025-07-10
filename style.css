@@ -301,7 +301,27 @@
   );
   z-index: 1;
 }
+.col p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: large;
+}
+.row {
+  margin-bottom: 1rem;
+}
+.card-img-top {
+  color: rgb(3, 3, 3);
+  box-shadow: 0 0 5px #07070766;
+  transition: all 0.5s ease;
+}
 
+.card-img-top:hover {
+  color: rgb(16, 16, 16);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgb(12, 12, 12);
+  border-bottom: 2px solid rgb(7, 7, 7);
+}
 .testimonial-carousel::after {
   position: absolute;
   content: "";

@@ -34,6 +34,7 @@
     <title>HealthBuddy - Your Fitness Partner</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="DietPlan.css">
 </head>
 
 
@@ -163,6 +164,91 @@
     </div>
 
 
+    <!-- <header class="hero">
+        <div class="hero-text">
+            <h1>Transform Your Health</h1>
+            <p>Get a Personalized diet plan for your Fitness goal</p>
+
+        </div>
+
+    </header> -->
+    <section class="DietPlan">
+        <h1>Diet Plan 🍎</h1>
+        <h3>Choose your goal and dietary type to get the right meal plan.</h3>
+        <div class="filterlayout">
+            <aside class="Diet-sidebar">
+                <h3>Filter by Goal</h3>
+                <div class="filter-group">
+                    <button class="filter-button" onclick="setfilter('goal','all',this)">All</button>
+                    <button class="filter-button" onclick="setfilter('goal','loss',this)">Weight Loss</button>
+                    <button class="filter-button" onclick="setfilter('goal','gain',this)">Muscle Gain</button>
+                    <button class="filter-button" onclick="setfilter('goal','maintain',this)">Maintenance</button>
+                </div>
+                <h3>Filter by Type</h3>
+                <div class="filter-group">
+                    <button class="filter-button" onclick="setfilter('type','all',this)">All</button>
+                    <button class="filter-button" onclick="setfilter('type','veg',this)">Veg</button>
+                    <button class="filter-button" onclick="setfilter('type','nonveg',this)">NonVeg</button>
+                </div>
+
+            </aside>
+            <div class="meal-content">
+                <div class="meal-card" data-goal="loss" data-type="veg">
+                    <img src="oats.jpg" />
+                    <h3>Weight Loss Plan (Veg)</h3>
+                    <ul>
+                        <li><strong>Breakfast:</strong> Oats + berries</li>
+                        <li><strong>Lunch:</strong> Quinoa + salad</li>
+                        <li><strong>Snack:</strong> Green tea + almonds</li>
+                        <li><strong>Dinner:</strong> Veg soup + brown rice</li>
+                    </ul>
+                    <button class="add-button" onclick="addToPlan(this)">Add to Plan</button>
+
+                </div>
+                <div class="meal-card" data-goal="gain" data-type="nonveg">
+                    <img src="chickenrice.jpg" />
+                    <h3>Muscle Gain Plan (Non-Veg)</h3>
+                    <ul>
+                        <li><strong>Breakfast:</strong> Eggs + milk</li>
+                        <li><strong>Lunch:</strong> Chicken + rice + dal</li>
+                        <li><strong>Snack:</strong> Peanut butter toast</li>
+                        <li><strong>Dinner:</strong> Fish + veggies</li>
+                    </ul>
+                    <button class="add-button" onclick="addToPlan(this)">Add to Plan</button>
+
+                </div>
+
+                <div class="meal-card" data-goal="maintain" data-type="veg">
+                    <img src="toor_dal1.jpg" />
+                    <h3>Maintenance Plan (Veg)</h3>
+                    <ul>
+                        <li><strong>Breakfast:</strong> Idli + chutney</li>
+                        <li><strong>Lunch:</strong> Roti + paneer + sabzi</li>
+                        <li><strong>Snack:</strong> Buttermilk</li>
+                        <li><strong>Dinner:</strong> Khichdi + salad</li>
+                    </ul>
+                    <button class="add-button" onclick="addToPlan(this)">Add to Plan</button>
+
+                </div>
+                <div class="meal-card" data-goal="gain" data-type="veg">
+                    <img src="tofurice.jpg" />
+                    <h3>Muscle Gain Plan (Veg)</h3>
+                    <ul>
+                        <li><strong>Breakfast:</strong> Oats + protein shake</li>
+                        <li><strong>Lunch:</strong> Tofu + rice + dal</li>
+                        <li><strong>Snack:</strong> Banana + peanut butter</li>
+                        <li><strong>Dinner:</strong> Paneer + roti</li>
+                    </ul>
+                    <button class="add-button" onclick="addToPlan(this)">Add to Plan</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
     <div class="footer_section">
         <div class="widecontain">
             <div class="footer-wrapper">
@@ -230,6 +316,71 @@
         });
 
     </script>
+    <script>
+        let activeFilters = {
+            goal: 'all',
+            type: 'all'
+        };
+
+
+        function setfilter(filterType, value, btn) {
+            activeFilters[filterType] = value;
+
+
+            // Remove 'active' from all buttons of this group
+            const buttons = document.querySelectorAll(`.filter-button`);
+            buttons.forEach(b => {
+                const groupTitle = b.closest('div').previousElementSibling?.innerText || '';
+                const isGoal = filterType === 'goal' && groupTitle.toLowerCase().includes('goal');
+                const isType = filterType === 'type' && groupTitle.toLowerCase().includes('type');
+                if (isGoal || isType) {
+                    b.classList.remove('active');
+                }
+            });
+
+            // Add 'active' to the clicked button
+            btn.classList.add('active');
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.meal-card');
+            cards.forEach(card => {
+                const goal = card.getAttribute('data-goal');
+                const type = card.getAttribute('data-type');
+
+                const matchGoal = activeFilters.goal === 'all' || goal === activeFilters.goal;
+                const matchType = activeFilters.type === 'all' || type === activeFilters.type;
+
+                card.style.display = (matchGoal && matchType) ? 'block' : 'none';
+            });
+        }
+        document.addEventListener('DOMContentLoaded', applyFilters);
+
+    </script>
+    <script>
+        function togglePlan() {
+            document.getElementById("plan-modal").classList.toggle("show");
+        }
+        function addToPlan(button) {
+            const mealCard = button.parentElement;
+            const clonedCard = mealCard.cloneNode(true);
+            const btn = clonedCard.querySelector('button');
+            if (btn) btn.remove();
+            document.getElementById("selected-meals").appendChild(clonedCard);
+        }
+    </script>
+    <!-- Floating Button -->
+    <button id="open-plan-btn" onclick="togglePlan()"> My Plan</button>
+
+    <!-- Plan Modal -->
+    <div id="plan-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="togglePlan()">&times;</span>
+            <h2>My Plan</h2>
+            <div id="selected-meals" class="meal-content"></div>
+        </div>
+    </div>
 </body>
 
 </html>
